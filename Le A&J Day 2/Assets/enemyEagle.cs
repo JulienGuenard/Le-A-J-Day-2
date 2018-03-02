@@ -61,16 +61,30 @@ void Awake ()
     IEnumerator Attack (GameObject player)
     {
     isAttacking = true;
+
+      Vector2 diference = transform.position - player.transform.position;
+      float sign = (player.transform.position.y < transform.position.y)? -1.0f : 1.0f;
+         
+
     yield return new WaitForSeconds(1f);
       GameObject newProj = ProjectileManager.Instance.listEnemyProjectile[0];
       newProj.transform.position = transform.position;
       ProjectileManager.Instance.listEnemyProjectile.Remove(newProj);
       newProj.GetComponent<enemyProjectile>().isActive = true;
-      newProj.transform.rotation = Quaternion.Euler(0,0,Vector3.Angle(transform.position, player.transform.position));
+      newProj.transform.rotation = Quaternion.Euler(0,0,Vector2.Angle(-Vector2.right, diference) * sign);
       newProj.GetComponent<enemyProjectile>().speed = projSpeed;
       newProj.GetComponent<enemyProjectile>().destroyTime = projDestroyTime;
       StartCoroutine(newProj.GetComponent<enemyProjectile>().AutoDisapear());
       yield return new WaitForSeconds(1f);
       isAttacking = false;
     }
+
+    void OnTriggerEnter2D (Collider2D col)
+    {
+        if (col.tag == "Player")
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
 }

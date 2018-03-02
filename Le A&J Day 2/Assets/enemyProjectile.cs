@@ -36,7 +36,7 @@ if (isActive)
 
     void Move ()
     {
-      rb2D.velocity = transform.right * -speed;
+      rb2D.velocity = -transform.right * -speed;
     }
 
     public IEnumerator AutoDisapear ()
