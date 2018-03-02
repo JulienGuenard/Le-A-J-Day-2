@@ -6,59 +6,69 @@ using System.Threading;
 
 public class enemyEagle : MonoBehaviour {
 
-Rigidbody2D rigidbody;
+  Rigidbody2D rb2D;
 public float speed;
 
   public float projRot;
   public float projSpeed;
   public float projDestroyTime;
 
-  Ray ray;
+  public bool isAttacking = false;
 
 void Awake ()
 {
-     rigidbody = GetComponent<Rigidbody2D>();
+      rb2D = GetComponent<Rigidbody2D>();
 }
 
 	void Update () 
     {
+    if (!isAttacking)
 		Move();
 
-      RaycastHit hitPoint;
-      ray.origin = transform.position + new Vector3 (0,0,0);
-      ray.direction = transform.position - new Vector3 (50,50,0);
-      Debug.DrawRay(new Vector3 (0,0,0), -new Vector3 (50,50,0), Color.green);
-         if(Physics.Raycast(ray, out hitPoint, Mathf.Infinity))
-         {
- 
-             if(Physics.Raycast(ray, out hitPoint, Mathf.Infinity) == GameObject.FindGameObjectWithTag("Player"))
-             {
-                 Debug.Log("Hit ground"); 
-             }
-             
-             if(Physics.Raycast(ray, out hitPoint, Mathf.Infinity) == GameObject.FindGameObjectWithTag("ground"))
-             {
-                 Debug.Log("Hit object"); 
-             }
-         }
-         else
-         {
-             Debug.Log ("No collider hit"); 
-         }
-	}
+      if (!isAttacking)
+        CheckAttack();
+      
+      if (isAttacking)
+        rb2D.velocity = Vector2.zero;
+
+
+    
+
+    }
 
     void Move ()
     {
-        rigidbody.velocity = new Vector2 (-speed, 0);
+      rb2D.velocity = transform.right * -speed;
     }
 
-    void Attack ()
+    void CheckAttack ()
     {
+      RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2 (-transform.right.x,-1) * 10);
+        if (hit.collider != null) {
+          Debug.DrawRay(transform.position, hit.collider.offset - (new Vector2 (-transform.right.x,-1) * hit.collider.transform.position.y), Color.red, 0.1f);
+          if (hit.collider.gameObject.tag == "Player")
+          {
+              StartCoroutine(Attack(hit.collider.gameObject));
+          }
+    }else
+    {
+          Debug.DrawRay(transform.position, new Vector2 (-transform.right.x,-1) * 10, Color.red, 0.1f);
+    }
+    }
+
+    IEnumerator Attack (GameObject player)
+    {
+    isAttacking = true;
+    yield return new WaitForSeconds(1f);
       GameObject newProj = ProjectileManager.Instance.listEnemyProjectile[0];
+      newProj.transform.position = transform.position;
       ProjectileManager.Instance.listEnemyProjectile.Remove(newProj);
       newProj.GetComponent<enemyProjectile>().isActive = true;
-      newProj.transform.rotation = Quaternion.Euler(0,0,projRot);
+      newProj.transform.rotation = Quaternion.Euler(0,0,Vector3.Angle(transform.position, player.transform.position));
       newProj.GetComponent<enemyProjectile>().speed = projSpeed;
       newProj.GetComponent<enemyProjectile>().destroyTime = projDestroyTime;
+      StartCoroutine(newProj.GetComponent<enemyProjectile>().AutoDisapear());
+      yield return new WaitForSeconds(1f);
+      isAttacking = false;
     }
 }

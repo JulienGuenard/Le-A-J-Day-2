@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Diagnostics;
 
 public class ProjectileManager : MonoBehaviour {
 
@@ -12,6 +11,7 @@ public class ProjectileManager : MonoBehaviour {
 	void Awake () {
 		Instance = this;
 
-        listEnemyProjectile.AddRange(GameObject.FindGameObjectsWithTag("enemyProjecile"));
+        Debug.Log("a");
+        listEnemyProjectile.AddRange(GameObject.FindGameObjectsWithTag("enemyProjectile"));
 	}
 }

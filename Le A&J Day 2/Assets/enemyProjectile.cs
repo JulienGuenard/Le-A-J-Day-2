@@ -9,11 +9,11 @@ public float speed;
 public float destroyTime;
 public bool isActive = false;
 
-Rigidbody2D rigidbody;
+  Rigidbody2D rb2D;
 
 void Awake ()
 {
-   rigidbody = GetComponent<Rigidbody2D>();
+      rb2D = GetComponent<Rigidbody2D>();
 }
 
 void Update ()
@@ -36,12 +36,15 @@ if (isActive)
 
     void Move ()
     {
-       rigidbody.velocity = Vector2.one * speed;
+      rb2D.velocity = transform.right * -speed;
     }
 
-    IEnumerator AutoDisapear ()
+    public IEnumerator AutoDisapear ()
     {
        yield return new WaitForSeconds(destroyTime);
+      transform.position = new Vector2(999,999);
+      ProjectileManager.Instance.listEnemyProjectile.Add(gameObject);
+       isActive = false;
 
     }
 }
