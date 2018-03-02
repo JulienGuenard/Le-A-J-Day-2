@@ -243,7 +243,7 @@ Transform:
   m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &84644624
 MonoBehaviour:
@@ -302,7 +302,7 @@ Prefab:
     - target: {fileID: 224273633953664326, guid: 7e9eca1fd6382d142a1e7eb234dac4ef,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224273633953664326, guid: 7e9eca1fd6382d142a1e7eb234dac4ef,
         type: 2}
@@ -711,7 +711,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4363514928594642, guid: 3a7883c334a762049947e9a10e52479c, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a7883c334a762049947e9a10e52479c, type: 2}
@@ -776,7 +776,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1474642104
 Prefab:
@@ -831,6 +831,21 @@ Prefab:
         type: 2}
       propertyPath: runSpeed
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114430696595354184, guid: 947a11229fb502b44b2e5fda450825cb,
+        type: 2}
+      propertyPath: speedLimit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114430696595354184, guid: 947a11229fb502b44b2e5fda450825cb,
+        type: 2}
+      propertyPath: distToGround
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 114430696595354184, guid: 947a11229fb502b44b2e5fda450825cb,
+        type: 2}
+      propertyPath: jumpForce
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 61353403764708124, guid: 947a11229fb502b44b2e5fda450825cb, type: 2}
@@ -955,3 +970,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &1853272114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1853272106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2279e357758c60545aedbf9a397382b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gem: {fileID: 0}
