@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   projRot: 0
-  projSpeed: 5
+  projSpeed: 0.5
   projDestroyTime: 5
   isAttacking: 0
 --- !u!212 &212112199576424856
