@@ -40,7 +40,6 @@ void Awake ()
 
     void Move ()
     {
-    if (
       rb2D.velocity = transform.right * -speed;
     }
 
