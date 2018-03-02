@@ -26,4 +26,13 @@ public class GetGemmes : MonoBehaviour {
         }
     }
 
+    void LoseGems()
+    {
+        Gemmes = 0;
+    }
+
+    void AddGems(int i)
+    {
+        Gemmes += i;
+    }
 }

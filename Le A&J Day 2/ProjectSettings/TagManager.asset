@@ -6,7 +6,11 @@ TagManager:
   tags:
   - ground
   - enemyProjectile
+<<<<<<< HEAD
   - Gem
+=======
+  - Ennemi
+>>>>>>> 56d2f91a22d241cc7ed7304b52644ba2814022fe
   layers:
   - Default
   - TransparentFX
