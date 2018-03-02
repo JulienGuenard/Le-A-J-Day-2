@@ -6,6 +6,7 @@ public class MoveRb : MonoBehaviour {
 
     public Rigidbody2D rb2D;
     public float runSpeed = 0.01f;
+    public float speedLimit = 150f;
     public List<string> groundLayers = new List<string>();
 
     public bool canRun;
@@ -27,6 +28,10 @@ public class MoveRb : MonoBehaviour {
         {
             rb2D.AddRelativeForce(Vector2.left * runSpeed, ForceMode2D.Impulse);
             canRun = false;
+        }
+        if(rb2D.velocity.magnitude > speedLimit)
+        {
+            rb2D.velocity = rb2D.velocity.normalized * speedLimit;
         }
     }
     void OnCollisionStay2D(Collision2D coll)
