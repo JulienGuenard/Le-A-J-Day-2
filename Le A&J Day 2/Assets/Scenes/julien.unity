@@ -1710,34 +1710,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 4328769359083270, guid: f06486279f7687142982326db91257cc, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1200687885992554, guid: f06486279f7687142982326db91257cc, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 50039280487377468, guid: f06486279f7687142982326db91257cc,
-        type: 2}
-      propertyPath: m_SleepingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114493133117491518, guid: f06486279f7687142982326db91257cc,
-        type: 2}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114493133117491518, guid: f06486279f7687142982326db91257cc,
-        type: 2}
-      propertyPath: projDestroyTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114493133117491518, guid: f06486279f7687142982326db91257cc,
-        type: 2}
-      propertyPath: projSpeed
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f06486279f7687142982326db91257cc, type: 2}
   m_IsPrefabParent: 0
