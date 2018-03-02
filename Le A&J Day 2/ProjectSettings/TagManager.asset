@@ -4,13 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - ground
-  - enemyProjectile
-<<<<<<< HEAD
-  - Gem
-=======
   - Ennemi
->>>>>>> 56d2f91a22d241cc7ed7304b52644ba2814022fe
+  - enemyProjectile
+  - Gem
   layers:
   - Default
   - TransparentFX
@@ -20,11 +16,11 @@ TagManager:
   - UI
   - 
   - 
-  - Ground
-  - LoopingOnly
-  - NonLoopingOnly
-  - Player
-  - Gemme
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
