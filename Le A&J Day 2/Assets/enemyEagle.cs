@@ -17,6 +17,9 @@ public float speed;
 
   GameObject playerAim;
 
+  public int gemNumber;
+  bool isDead = false;
+
 void Awake ()
 {
       rb2D = GetComponent<Rigidbody2D>();
@@ -79,10 +82,19 @@ void Awake ()
       isAttacking = false;
     }
 
-    void OnTriggerEnter2D (Collider2D col)
+    void OnTriggerStay2D (Collider2D col)
     {
-        if (col.tag == "Player")
+        if (col.tag == "Player" && !isDead)
         {
+        isDead = true;
+        for (int i = 0; i < gemNumber; i++)
+        {
+              GameObject newGem = GemManager.Instance.listGem[0];
+              newGem.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+              GemManager.Instance.listGem.Remove(newGem);
+              newGem.transform.position = transform.position;
+              newGem.GetComponent<Rigidbody2D>().AddForce (new Vector2(Random.Range(-50,50), 25));
+        }
             Destroy(this.gameObject);
         }
     }

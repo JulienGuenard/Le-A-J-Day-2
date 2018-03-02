@@ -11,6 +11,6 @@ public class GemManager : MonoBehaviour {
     void Awake () {
         Instance = this;
 
-        listGem.AddRange(GameObject.FindGameObjectsWithTag("gem"));
+        listGem.AddRange(GameObject.FindGameObjectsWithTag("Gem"));
     }
 }
