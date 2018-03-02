@@ -15,6 +15,8 @@ public float speed;
 
   public bool isAttacking = false;
 
+  GameObject playerAim;
+
 void Awake ()
 {
       rb2D = GetComponent<Rigidbody2D>();
@@ -38,6 +40,7 @@ void Awake ()
 
     void Move ()
     {
+    if (
       rb2D.velocity = transform.right * -speed;
     }
 
